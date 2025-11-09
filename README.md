@@ -5,17 +5,17 @@ This project uses data from the Washington Post Data on Police Shootings V2 Data
 # Structure of Files and Folders
 -**fatal-police-shootings-data.csv** Original Data Set from the Washington Post (link above), which is used as the basis of all demonstrations of learning outcomes in the project. 
 - **final_assignment_python** - Folder containing all of the tasks related to Demonstration of Learning Outcomes Related to Python
--   police-killings-data-section1.py - Pyhon code demonstrating learning outcomes 1 to 10. Comments are included to explain the code line by line as different tasks were completed. 
+-   police-killings-data-section1.py - Python code demonstrating learning outcomes 1 to 10. Comments are included to explain the code line by line as different tasks were completed. 
 -   /cleaned_data/ - folder demonstrates learning outcomes 5-7
 -   /outputs - folder demonstrating learning outcomes 9-10
-- **final_assignment_stata** — Folder containing all of tasks related to Stata
--   /do_files_final_assignment/ - Demonsrates learning outcomes 4-10. Work is organized in sections. Section 1 covers transformations, Section 2 covers summary statistics and graphs, Section 3 covers filtering observations and additional data cleaning. Sections MUST be done in order 1, 2, 3 to accurate reproduce the work. 
--   /cleaned data/ - folder demonstrates learning outcomes 5-7. Data was cleaned with differing strategies, as described in Do Files Section 1 and Section 3. A separate folder within this folder /filtering_section3/ is used because the extreme filtering procudes a cleaned dataset with far fewer observations and removes observations with missing values that some researchers may still find valuable. 
+- **final_assignment_stata** — Folder containing all of the tasks related to Stata
+-   /do_files_final_assignment/ - Demonstrates learning outcomes 4-10. Work is organized in sections. Section 1 covers transformations, Section 2 covers summary statistics and graphs, Section 3 covers filtering observations and additional data cleaning. Sections MUST be done in order 1, 2, 3 to reproduce the work accurately. 
+-   /cleaned data/ - folder demonstrates learning outcomes 5-7. Data were cleaned using different strategies, as described in the Do Files Sections 1 and 3. A separate folder within this folder /filtering_section3/ is used because the extreme filtering produces a cleaned dataset with far fewer observations and removes observations with missing values that some researchers may still find valuable. 
 -   /outputs/ - folder demonstrates 8-10, and has graphs related to key variables of interest
 -   /log_files/ - automatically saved log files by running the commands
 -   *.gitignore was included to remove DS_Store from the GitHub repository*
 
-*Note: Learing Outcomes 11-15 are demonsrated by the existence of a GitHub repository, the file structure, and the organization of the repository.* 
+*Note: Learning Outcomes 11-15 are demonstrated by the existence of a GitHub repository, the file structure, and the organization of the repository.* 
 
 # Reproducing Parts or all of this Project
 1. Clone this repository or download the relevant files to your research.  
