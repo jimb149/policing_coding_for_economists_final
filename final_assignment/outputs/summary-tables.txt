@@ -1,0 +1,66 @@
+
+-> tabulation of race  
+
+           race |      Freq.     Percent        Cum.
+----------------+-----------------------------------
+          White |      4,659       50.48       50.48
+          Black |      2,486       26.94       77.42
+ Asian heritage |        184        1.99       79.41
+Native American |        146        1.58       80.99
+       Hispanic |      1,717       18.60       99.60
+          Other |         37        0.40      100.00
+----------------+-----------------------------------
+          Total |      9,229      100.00
+
+-> tabulation of flee_status  
+
+        flee_status |      Freq.     Percent        Cum.
+--------------------+-----------------------------------
+        Not fleeing |      5,575       62.37       62.37
+            On foot |      1,345       15.05       77.41
+            Via car |      1,634       18.28       95.69
+Via another vehicle |        385        4.31      100.00
+--------------------+-----------------------------------
+              Total |      8,939      100.00
+
+-> tabulation of threat_type  
+
+         threat_type |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+        Fired weapon |      2,924       28.22       28.22
+      Pointed weapon |      1,890       18.24       46.46
+            Attacked |      1,490       14.38       60.84
+  Had weapon visible |      2,674       25.81       86.64
+Threatening movement |        599        5.78       92.42
+             Fleeing |        192        1.85       94.28
+            Accident |         55        0.53       94.81
+        Undetermined |        538        5.19      100.00
+---------------------+-----------------------------------
+               Total |     10,362      100.00
+
+-> tabulation of armed_with  
+
+  armed_with |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+     Unarmed |        565        5.61        5.61
+         Gun |      6,040       59.97       65.58
+       Knife |      1,776       17.63       83.21
+Blunt Object |        252        2.50       85.71
+       Other |        108        1.07       86.79
+     Replica |        331        3.29       90.07
+Undetermined |        463        4.60       94.67
+     Unknown |        165        1.64       96.31
+     Vehicle |        372        3.69      100.00
+-------------+-----------------------------------
+       Total |     10,072      100.00
+
+-> tabulation of was_mental_illness_related  
+
+was_mental_ |
+illness_rel |
+       ated |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      False |      8,373       80.28       80.28
+       True |      2,057       19.72      100.00
+------------+-----------------------------------
+      Total |     10,430      100.00

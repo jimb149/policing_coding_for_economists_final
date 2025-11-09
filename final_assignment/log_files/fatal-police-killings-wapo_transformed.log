@@ -1,0 +1,411 @@
+--------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\Barr_James\OneDrive\coding for economists\final_assi
+> gnment\log_files/fatal-police-killings-wapo_transformed.log
+  log type:  text
+ opened on:   9 Nov 2025, 17:50:05
+
+. 
+. cd "C:\Users\Barr_James\OneDrive\coding for economists\final_assignment"
+C:\Users\Barr_James\OneDrive\coding for economists\final_assignment
+
+. 
+. capture mkdir "cleaned_data"
+
+. 
+. pwd // confirming that we are in the correct working directory before im
+> porting the data set
+C:\Users\Barr_James\OneDrive\coding for economists\final_assignment
+
+. 
+. import delimited "fatal-police-shootings-data.csv", varnames(1) encoding
+> (UTF-8) clear
+(19 vars, 10,430 obs)
+
+. 
+. rename race race_string // Renaming the race varaibel to race_string var
+> iable to reference when making race defined as categorical integers 
+
+. 
+. gen race = . // generating race to reference race_string information to 
+> make race a categorical integer
+(10,430 missing values generated)
+
+. 
+. local i = 1 // using local macro to replace the string data with a numbe
+> r 
+
+. 
+. foreach cat in W B A N H O {
+  2.         replace race = `i' if race_string == "`cat'"
+  3.         local i = `i' + 1
+  4.         }
+(4,659 real changes made)
+(2,486 real changes made)
+(184 real changes made)
+(146 real changes made)
+(1,717 real changes made)
+(37 real changes made)
+
+. // Each observation now as a integer related to the race, meaning that t
+> he variable has now been transformed from a string to an integer, and St
+> ata can work with the observations. 
+. 
+. label define race_labels 1 "White" 2 "Black" 3 "Asian heritage" 4 "Nativ
+> e American" 5 "Hispanic" 6 "Other" // assigning text labels
+
+. 
+. label values race race_labels // assigning the labels to the integers in
+>  race
+
+. 
+. browse race // visible with text labels of race
+
+. 
+. browse race, nolabel // removes the text labels and the integer values a
+> re visible
+
+. 
+. // This process is repeated for other variables to transform them from s
+> tring to categorical integers to for working with the data set in stata 
+. 
+. rename flee_status flee_status_string
+
+. 
+. gen flee_status = .
+(10,430 missing values generated)
+
+. 
+. local i = 0
+
+. 
+. foreach cat in not foot car other {
+  2.         replace flee_status = `i' if flee_status_string == "`cat'" 
+  3.         local i = `i' + 1 
+  4.         }
+(5,575 real changes made)
+(1,345 real changes made)
+(1,634 real changes made)
+(385 real changes made)
+
+. 
+. label define flee_labels 0 "Not fleeing" 1 "On foot" 2 "Via car" 3 "Via 
+> another vehicle"
+
+. 
+. label values flee_status flee_labels
+
+. 
+. rename threat_type threat_type_string
+
+. 
+. gen threat_type = .
+(10,430 missing values generated)
+
+. 
+. local i = 1
+
+.  
+. foreach cat in shoot point attack threat move flee accident undetermined
+>  {
+  2.         replace threat_type = `i' if threat_type_string == "`cat'" 
+  3.         local i = `i' + 1
+  4.         }
+(2,924 real changes made)
+(1,890 real changes made)
+(1,490 real changes made)
+(2,674 real changes made)
+(599 real changes made)
+(192 real changes made)
+(55 real changes made)
+(538 real changes made)
+
+. 
+. label define threat_labels 1 "Fired weapon" 2 "Pointed weapon" 3 "Attack
+> ed" 4 "Had weapon visible" 5 "Threatening movement" 6 "Fleeing" 7 "Accid
+> ent" 8 "Undetermined"
+
+. 
+. label values threat_type threat_labels
+
+. 
+. rename armed_with armed_with_string
+
+. 
+. gen armed_with = .
+(10,430 missing values generated)
+
+. 
+. local i = 0
+
+. 
+. foreach cat in unarmed gun knife blunt_object other replica undetermined
+>  unknown vehicle {
+  2.         replace armed_with = `i' if armed_with_string == "`cat'"
+  3.         local i = `i' + 1 
+  4.         }
+(565 real changes made)
+(6,040 real changes made)
+(1,776 real changes made)
+(252 real changes made)
+(108 real changes made)
+(331 real changes made)
+(463 real changes made)
+(165 real changes made)
+(372 real changes made)
+
+.         
+. label define armed_with_labels 0 "Unarmed" 1 "Gun" 2 "Knife" 3 "Blunt Ob
+> ject" 4 "Other" 5 "Replica" 6 "Undetermined" 7 "Unknown" 8 "Vehicle"
+
+. 
+. label values armed_with armed_with_labels
+
+. 
+. tabulate armed_with_string armed_with, missing
+
+                      |            armed_with
+    armed_with_string |   Unarmed        Gun      Knife |     Total
+----------------------+---------------------------------+----------
+                      |         0          0          0 |       211 
+         blunt_object |         0          0          0 |       252 
+blunt_object;blunt_.. |         0          0          0 |         4 
+     blunt_object;gun |         0          0          0 |         1 
+   blunt_object;knife |         0          0          0 |         3 
+   blunt_object;other |         0          0          0 |         1 
+                  gun |         0      6,040          0 |     6,040 
+            gun;knife |         0          0          0 |        42 
+            gun;other |         0          0          0 |         2 
+          gun;vehicle |         0          0          0 |        39 
+                knife |         0          0      1,776 |     1,776 
+   knife;blunt_object |         0          0          0 |         5 
+          knife;knife |         0          0          0 |         6 
+        knife;replica |         0          0          0 |         2 
+        knife;unknown |         0          0          0 |         1 
+        knife;vehicle |         0          0          0 |         3 
+                other |         0          0          0 |       108 
+other;blunt_object;.. |         0          0          0 |         1 
+            other;gun |         0          0          0 |         4 
+          other;knife |         0          0          0 |         1 
+              replica |         0          0          0 |       331 
+ replica;blunt_object |         0          0          0 |         1 
+        replica;knife |         0          0          0 |         1 
+      replica;vehicle |         0          0          0 |         1 
+              unarmed |       565          0          0 |       565 
+         undetermined |         0          0          0 |       463 
+              unknown |         0          0          0 |       165 
+              vehicle |         0          0          0 |       372 
+          vehicle;gun |         0          0          0 |        25 
+        vehicle;knife |         0          0          0 |         3 
+  vehicle;knife;other |         0          0          0 |         1 
+----------------------+---------------------------------+----------
+                Total |       565      6,040      1,776 |    10,430 
+
+
+                      |            armed_with
+    armed_with_string | Blunt Obj      Other    Replica |     Total
+----------------------+---------------------------------+----------
+                      |         0          0          0 |       211 
+         blunt_object |       252          0          0 |       252 
+blunt_object;blunt_.. |         0          0          0 |         4 
+     blunt_object;gun |         0          0          0 |         1 
+   blunt_object;knife |         0          0          0 |         3 
+   blunt_object;other |         0          0          0 |         1 
+                  gun |         0          0          0 |     6,040 
+            gun;knife |         0          0          0 |        42 
+            gun;other |         0          0          0 |         2 
+          gun;vehicle |         0          0          0 |        39 
+                knife |         0          0          0 |     1,776 
+   knife;blunt_object |         0          0          0 |         5 
+          knife;knife |         0          0          0 |         6 
+        knife;replica |         0          0          0 |         2 
+        knife;unknown |         0          0          0 |         1 
+        knife;vehicle |         0          0          0 |         3 
+                other |         0        108          0 |       108 
+other;blunt_object;.. |         0          0          0 |         1 
+            other;gun |         0          0          0 |         4 
+          other;knife |         0          0          0 |         1 
+              replica |         0          0        331 |       331 
+ replica;blunt_object |         0          0          0 |         1 
+        replica;knife |         0          0          0 |         1 
+      replica;vehicle |         0          0          0 |         1 
+              unarmed |         0          0          0 |       565 
+         undetermined |         0          0          0 |       463 
+              unknown |         0          0          0 |       165 
+              vehicle |         0          0          0 |       372 
+          vehicle;gun |         0          0          0 |        25 
+        vehicle;knife |         0          0          0 |         3 
+  vehicle;knife;other |         0          0          0 |         1 
+----------------------+---------------------------------+----------
+                Total |       252        108        331 |    10,430 
+
+
+                      |            armed_with
+    armed_with_string | Undetermi    Unknown    Vehicle |     Total
+----------------------+---------------------------------+----------
+                      |         0          0          0 |       211 
+         blunt_object |         0          0          0 |       252 
+blunt_object;blunt_.. |         0          0          0 |         4 
+     blunt_object;gun |         0          0          0 |         1 
+   blunt_object;knife |         0          0          0 |         3 
+   blunt_object;other |         0          0          0 |         1 
+                  gun |         0          0          0 |     6,040 
+            gun;knife |         0          0          0 |        42 
+            gun;other |         0          0          0 |         2 
+          gun;vehicle |         0          0          0 |        39 
+                knife |         0          0          0 |     1,776 
+   knife;blunt_object |         0          0          0 |         5 
+          knife;knife |         0          0          0 |         6 
+        knife;replica |         0          0          0 |         2 
+        knife;unknown |         0          0          0 |         1 
+        knife;vehicle |         0          0          0 |         3 
+                other |         0          0          0 |       108 
+other;blunt_object;.. |         0          0          0 |         1 
+            other;gun |         0          0          0 |         4 
+          other;knife |         0          0          0 |         1 
+              replica |         0          0          0 |       331 
+ replica;blunt_object |         0          0          0 |         1 
+        replica;knife |         0          0          0 |         1 
+      replica;vehicle |         0          0          0 |         1 
+              unarmed |         0          0          0 |       565 
+         undetermined |       463          0          0 |       463 
+              unknown |         0        165          0 |       165 
+              vehicle |         0          0        372 |       372 
+          vehicle;gun |         0          0          0 |        25 
+        vehicle;knife |         0          0          0 |         3 
+  vehicle;knife;other |         0          0          0 |         1 
+----------------------+---------------------------------+----------
+                Total |       463        165        372 |    10,430 
+
+
+                      | armed_with
+    armed_with_string |         . |     Total
+----------------------+-----------+----------
+                      |       211 |       211 
+         blunt_object |         0 |       252 
+blunt_object;blunt_.. |         4 |         4 
+     blunt_object;gun |         1 |         1 
+   blunt_object;knife |         3 |         3 
+   blunt_object;other |         1 |         1 
+                  gun |         0 |     6,040 
+            gun;knife |        42 |        42 
+            gun;other |         2 |         2 
+          gun;vehicle |        39 |        39 
+                knife |         0 |     1,776 
+   knife;blunt_object |         5 |         5 
+          knife;knife |         6 |         6 
+        knife;replica |         2 |         2 
+        knife;unknown |         1 |         1 
+        knife;vehicle |         3 |         3 
+                other |         0 |       108 
+other;blunt_object;.. |         1 |         1 
+            other;gun |         4 |         4 
+          other;knife |         1 |         1 
+              replica |         0 |       331 
+ replica;blunt_object |         1 |         1 
+        replica;knife |         1 |         1 
+      replica;vehicle |         1 |         1 
+              unarmed |         0 |       565 
+         undetermined |         0 |       463 
+              unknown |         0 |       165 
+              vehicle |         0 |       372 
+          vehicle;gun |        25 |        25 
+        vehicle;knife |         3 |         3 
+  vehicle;knife;other |         1 |         1 
+----------------------+-----------+----------
+                Total |       358 |    10,430 
+
+. 
+. rename gender gender_string
+
+. 
+. gen gender = .
+(10,430 missing values generated)
+
+. 
+. local i = 1
+
+. 
+. foreach cat in male female non-binary { 
+  2.         replace gender = `i' if gender_string == "`cat'" 
+  3.         local i = `i' + 1
+  4.         }
+(9,943 real changes made)
+(462 real changes made)
+(5 real changes made)
+
+. 
+. label define gender_labels 1 "Male" 2 "Female" 3 "Non-binary"
+
+.         
+. label values gender gender_labels
+
+. 
+. tabulate gender_string gender, missing // Checking to see if when transf
+> orming the gender variable if any data was missed
+
+gender_str |                   gender
+       ing |      Male     Female  Non-binar          . |     Total
+-----------+--------------------------------------------+----------
+           |         0          0          0         20 |        20 
+    female |         0        462          0          0 |       462 
+      male |     9,943          0          0          0 |     9,943 
+non-binary |         0          0          5          0 |         5 
+-----------+--------------------------------------------+----------
+     Total |     9,943        462          5         20 |    10,430 
+
+. 
+. rename was_mental_illness_related was_mental_illness_related_str
+
+. 
+. gen was_mental_illness_related = .
+(10,430 missing values generated)
+
+. 
+. replace was_mental_illness_related = 0 if was_mental_illness_related_str
+>  == "False"
+(8,373 real changes made)
+
+. 
+. replace was_mental_illness_related = 1 if was_mental_illness_related_str
+>  == "True"
+(2,057 real changes made)
+
+. 
+. label define mental_illness_labels 1 "True" 0 "False"
+
+. 
+. label values was_mental_illness_related mental_illness_labels
+
+. 
+. tabulate was_mental_illness_related_str was_mental_illness_related, miss
+> ing
+
+was_mental | was_mental_illness_re
+_illness_r |         lated
+elated_str |     False       True |     Total
+-----------+----------------------+----------
+     False |     8,373          0 |     8,373 
+      True |         0      2,057 |     2,057 
+-----------+----------------------+----------
+     Total |     8,373      2,057 |    10,430 
+
+. 
+. save "cleaned_data/police-killings-wapo_transformed_section1.dta", repla
+> ce // saving the cleaned data into a separate folder for further use bot
+> h in .dta and .csv formats
+file cleaned_data/police-killings-wapo_transformed_section1.dta saved
+
+. 
+. export delimited "cleaned_data/police-killings-wapo_transformed_section1
+> .csv", replace
+file cleaned_data/police-killings-wapo_transformed_section1.csv saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\Barr_James\OneDrive\coding for economists\final_assi
+> gnment\log_files/fatal-police-killings-wapo_transformed.log
+  log type:  text
+ closed on:   9 Nov 2025, 17:50:07
+--------------------------------------------------------------------------
