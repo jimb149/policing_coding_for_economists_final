@@ -1,7 +1,6 @@
 # Coding For Economists Final Assignment
-Using data on fatal police shootings in the US as it relates to possible thesis research
 
-This project uses data from the Washington Post Data on Police Shootings V2 Dataset (link here: https://github.com/washingtonpost/data-police-shootings/tree/master/v2). Please refer to the link to understand the methodology with which it was gathered, the licensing, and the variables included. 
+This project uses data from the Washington Post Data on Police Shootings V2 Dataset (link here: https://github.com/washingtonpost/data-police-shootings/tree/master/v2). Please refer to the link to understand the methodology with which it was gathered, the licensing, and the variables included. I used data on fatal police shootings/killings in the US because it is a possible thesis topic.
 
 # Structure of Files and Folders
 -**fatal-police-shootings-data.csv** Original Data Set from the Washington Post (link above), which is used as the basis of all demonstrations of learning outcomes in the project. 
