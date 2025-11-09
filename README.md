@@ -15,6 +15,8 @@ This project uses data from the Washington Post Data on Police Shootings V2 Data
 -   /outputs/ - folder demonstrates 8-10, and has graphs related to key variables of interest
 -   /log_files/ - automatically saved log files by running the commands
 
+*Learing Outcomes 11-15 are demonsrated by the existence of a GitHub repository, the file structure, and the organization of the repository.* 
+
 # Reproducing Parts or all of this Project
 1. Clone this repository or download the relevant files to your research.  
 2. Adjust the file structure in the Stata `.do` file or the Python `.py` files to your own computer and file structure.
