@@ -14,6 +14,7 @@ This project uses data from the Washington Post Data on Police Shootings V2 Data
 -   /cleaned data/ - folder demonstrates learning outcomes 5-7. Data was cleaned with differing strategies, as described in Do Files Section 1 and Section 3. A separate folder within this folder /filtering_section3/ is used because the extreme filtering procudes a cleaned dataset with far fewer observations and removes observations with missing values that some researchers may still find valuable. 
 -   /outputs/ - folder demonstrates 8-10, and has graphs related to key variables of interest
 -   /log_files/ - automatically saved log files by running the commands
+-   *.gitignore was included to remove DS_Store from the GitHub repository*
 
 *Note: Learing Outcomes 11-15 are demonsrated by the existence of a GitHub repository, the file structure, and the organization of the repository.* 
 
