@@ -3,7 +3,7 @@
 This project uses data from the Washington Post Data on Police Shootings V2 Dataset (link here: https://github.com/washingtonpost/data-police-shootings/tree/master/v2). Please refer to the link to understand the methodology with which it was gathered, the licensing, and the variables included. I used data on fatal police shootings/killings in the US because it is a possible thesis topic.
 
 # Structure of Files and Folders
--**fatal-police-shootings-data.csv** Original Data Set from the Washington Post (link above), which is used as the basis of all demonstrations of learning outcomes in the project. 
+- **fatal-police-shootings-data.csv** Original Data Set from the Washington Post (link above), which is used as the basis of all demonstrations of learning outcomes in the project. 
 - **final_assignment_python** - Folder containing all of the tasks related to Demonstration of Learning Outcomes Related to Python
 -   police-killings-data-section1.py - Python code demonstrating learning outcomes 1 to 10. Comments are included to explain the code line by line as different tasks were completed. 
 -   /cleaned_data/ - folder demonstrates learning outcomes 5-7
@@ -11,7 +11,7 @@ This project uses data from the Washington Post Data on Police Shootings V2 Data
 - **final_assignment_stata** — Folder containing all of the tasks related to Stata
 -   /do_files_final_assignment/ - Demonstrates learning outcomes 4-10. Work is organized in sections. Section 1 covers transformations, Section 2 covers summary statistics and graphs, Section 3 covers filtering observations and additional data cleaning. Sections MUST be done in order 1, 2, 3 to reproduce the work accurately. 
 -   /cleaned data/ - folder demonstrates learning outcomes 5-7. Data were cleaned using different strategies, as described in the Do Files Sections 1 and 3. A separate folder within this folder /filtering_section3/ is used because the extreme filtering produces a cleaned dataset with far fewer observations and removes observations with missing values that some researchers may still find valuable. 
--   /outputs/ - folder demonstrates 8-10, and has graphs related to key variables of interest
+-   /outputs/ - folder demonstrates 8-10, and has graphs related to key variables of interest. Tabulations of statistics of interest are included here as well in `.xlm` format.
 -   /log_files/ - automatically saved log files by running the commands
 -   *.gitignore was included to remove DS_Store from the GitHub repository*
 
